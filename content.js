@@ -28,3 +28,5 @@ function getSelText() {
 
 //getSelText();
 console.log("content script ran");
+chrome.action.setPopup({popup: "index.html"})
+chrome.action.openPopup();

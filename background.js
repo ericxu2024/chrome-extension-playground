@@ -25,4 +25,6 @@ chrome.action.onClicked.addListener((tab) => {
       target: {tabId: tab.id},
       files: ['content.js']
     });
+    chrome.action.setPopup({popup: "index.html"})
+    chrome.action.openPopup();
   });
