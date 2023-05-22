@@ -1,22 +1,14 @@
-apiKey = "eB8MBQ68gY/PPCjzioEUqQ==OruEx0QHdYMVlm6f";
-const request = require('request');
+var apiKey = "eB8MBQ68gY/PPCjzioEUqQ==OruEx0QHdYMVlm6f";
+const category = "fooddrink"
+var options = {
+    method: 'GET',
+    headers: { 'X-Api-Key': 'eB8MBQ68gY/PPCjzioEUqQ==OruEx0QHdYMVlm6f'},
+    contentType: 'application/json'}
 
-var category = 'fooddrink'
-request.get({
-  url: 'https://api.api-ninjas.com/v1/trivia?category=' + category,
-  headers: {
-    'X-Api-Key': 'eB8MBQ68gY/PPCjzioEUqQ==OruEx0QHdYMVlm6f'
-  },
-}, function(error, response, body) {
-  if(error) {
-    return console.error('Request failed:', error);
-  }
-  else if(response.statusCode != 200) {
-    return console.error('Error:', response.statusCode, body.toString('utf8'));
-  }
-  else {
-    //document.getElementById("question").innerHTML = response[0].question;
-    //document.getElementById("answer").innerHTML = response[0].answer;
-    console.log(body)
-  }
-});
+async function fetchData() {
+    const res=await fetch ('https://api.api-ninjas.com/v1/trivia?category=' + category, options);
+    const record=await res.json();
+    document.getElementById("question").innerHTML = "Question: " + record[0].question;
+    document.getElementById("answer").innerHTML = "Answer: " + record[0].answer;
+}
+fetchData();
