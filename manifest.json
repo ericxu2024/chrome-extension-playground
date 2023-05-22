@@ -1,0 +1,11 @@
+{
+    "name": "Food & Drink Trivia!!",
+    "version": "1.0.0",
+    "description": "Gives question and answer of interesting food/drink facts.",
+    "manifest_version": 3,
+    "author": "Eric Xu",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Food & Drink Trivia!"
+    }
+}
