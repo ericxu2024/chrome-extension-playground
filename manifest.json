@@ -5,7 +5,12 @@
     "manifest_version": 3,
     "author": "Eric Xu",
     "action":{
-        "default_popup": "index.html",
+        
         "default_title": "Food & Drink Trivia!"
-    }
+    },
+    
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["activeTab", "scripting"]
 }
