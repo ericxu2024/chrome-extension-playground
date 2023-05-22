@@ -1,11 +1,22 @@
 apiKey = "eB8MBQ68gY/PPCjzioEUqQ==OruEx0QHdYMVlm6f";
+const request = require('request');
 
-async function fetchData() {
-    const res=await fetch ("https://api.coronavirus.data.gov.uk/v1/data");
-    const record=await res.json();
-    document.getElementById("date").innerHTML=record.data[0].date;
-    document.getElementById("areaName").innerHTML=record.data[0].areaName;
-    document.getElementById("latestBy").innerHTML=record.data[0].latestBy;
-    document.getElementById("deathNew").innerHTML=record.data[0].deathNew;
-}
-fetchData();
+var category = 'fooddrink'
+request.get({
+  url: 'https://api.api-ninjas.com/v1/trivia?category=' + category,
+  headers: {
+    'X-Api-Key': 'eB8MBQ68gY/PPCjzioEUqQ==OruEx0QHdYMVlm6f'
+  },
+}, function(error, response, body) {
+  if(error) {
+    return console.error('Request failed:', error);
+  }
+  else if(response.statusCode != 200) {
+    return console.error('Error:', response.statusCode, body.toString('utf8'));
+  }
+  else {
+    //document.getElementById("question").innerHTML = response[0].question;
+    //document.getElementById("answer").innerHTML = response[0].answer;
+    console.log(body)
+  }
+});
